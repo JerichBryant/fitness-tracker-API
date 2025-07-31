@@ -1,9 +1,11 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from . import models
+from fastapi import FastAPI, Response, status, HTTPException, Depends
+from fastapi.params import Body
+from .models import food, meal
 from .database import engine, get_db
 
-models.Base.metadata.create_all(bind=engine)
+food.Base.metadata.create_all(bind=engine)
+meal.Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI() 
 
