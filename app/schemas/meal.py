@@ -1,11 +1,14 @@
 from pydantic import BaseModel
-
-class Calories(BaseModel):
-    protein : float
-    carb : float
-    fat : float
     
 class Meal(BaseModel):
     name : str
-    calories : Calories
     timestamp : float
+
+class MealCreate(Meal):
+    pass
+
+class MealOut(Meal):
+    id : int
+
+    class Config:
+        orm_mode = True

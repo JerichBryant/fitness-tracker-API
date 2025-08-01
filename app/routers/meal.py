@@ -6,5 +6,5 @@ from crud import meal as meal_crud
 router = APIRouter()
 
 @router.get("/meals/", tags =["meals"])
-async def get_all_meals(db : Session = Depends(get_db)):
+def get_all_meals(db : Session = Depends(get_db)):
     return meal_crud.get_all_meals(db)
