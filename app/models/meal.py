@@ -1,9 +1,17 @@
-from sqlalchemy import TIMESTAMP, Column, Integer, String, Boolean
-from sqlalchemy.sql.expression import text
+from sqlalchemy import TIMESTAMP, Column, ForeignKey, Integer, String, Boolean
+from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 from ..database import Base
+
+
 
 class Meal(Base):
     __tablename__ = 'meal'
 
-    id = Column(Integer, primary_key= True, nullable=False)
+    meal_id = mapped_column(Integer, primary_key= True, nullable=False)
+    type_meal = Column(String, nullable = False)
+    time_stamp = Column(TIMESTAMP)
+     
+
+
+
 

@@ -1,15 +1,21 @@
-from logging import fatal
-from sqlalchemy import TIMESTAMP, Column, Float, Integer, String, Boolean
-from sqlalchemy.sql.expression import text
+from sqlalchemy import TIMESTAMP, Column, ForeignKey, Integer, String, Boolean, Float
+from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 from ..database import Base
 
 class Food(Base):
     __tablename__ = 'food'
 
-    id = Column(Integer, primary_key= True, nullable= False)
-    calories = Column(Integer)
+    food_id = Column(Integer, primary_key= True, nullable= False)
+    name = Column(String)
+    calories = Column(Integer, nullable=False)
     protein = Column(Float)
     fat = Column(Float)
     carb = Column(Float)
+    times_tamp = Column(TIMESTAMP)
+    
+
+    
+
+
 
     

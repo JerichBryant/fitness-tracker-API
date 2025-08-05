@@ -6,7 +6,6 @@ from .database import engine, get_db
 food.Base.metadata.create_all(bind=engine)
 meal.Base.metadata.create_all(bind=engine)
 
-
 app = FastAPI() 
 
 @app.get("/")
