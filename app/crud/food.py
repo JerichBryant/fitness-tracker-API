@@ -4,6 +4,7 @@ from models.food import Food
 from schemas.food import * 
 
 def calculate_calories():
+    total_calories = Food.carb * Food.fat * Food.protein
     return total_calories
 
 def get_all_food(db: Session) -> List[Food]:
