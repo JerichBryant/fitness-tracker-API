@@ -5,4 +5,6 @@ class User(BaseModel):
     email : str
     #hashed_password : to-do
     is_online : bool
-    
+
+    class Config:
+        orm_mode= True
